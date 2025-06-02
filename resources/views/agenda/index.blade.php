@@ -28,26 +28,24 @@
 
     <!-- card agenda -->
     <div class="container_card">
-        <div class="card-content">
-            <div class="card-item">
-                @foreach($allAgenda as $key => $agd)
-                <img src="{{ asset('assets/img/CONT01.webp') }}" alt="">
-                <h2>{{ $agd-> title }}</h2>
-                <p>{{ $agd-> description }}</p>
-                <p>{{ $agd-> date }}</p>
-                <p>{{ $agd-> location }}</p>
-                <form action="{{ route('agenda.destroy', $agd->id) }}" method="POST">
-                            <a href="{{ route('agenda.show', $agd->id) }}" class="tombol">Detail</a>
-                            <a href="{{ route('agenda.edit', $agd->id) }}" class="tombol">Edit</a>
-                            <!-- hapus -->
-                
-                             @csrf
-                            @method('DELETE')
-                            <button type="submit" class="tombol">Hapus</button>
-                </form>
-                @endforeach
-            </div>
+    @foreach($allAgenda as $key => $agd)
+        <div class="card-item">
+            <img src="{{ asset('assets/img/CONT01.webp') }}" alt="">
+            <h2>{{ $agd->title }}</h2>
+            <p>{{ $agd->description }}</p>
+            <p>{{ $agd->date }}</p>
+            <p>{{ $agd->location }}</p>
+            <form action="{{ route('agenda.destroy', $agd->id) }}" method="POST">
+                <a href="{{ route('agenda.show', $agd->id) }}" class="tombol">Detail</a>
+                <a href="{{ route('agenda.edit', $agd->id) }}" class="tombol">Edit</a>
+                @csrf
+                @method('DELETE')
+                <button type="submit" class="tombol">Hapus</button>
+            </form>
         </div>
+    @endforeach
+</div>
+
 
     
                
