@@ -35,6 +35,8 @@
             <p>{{ $agd->description }}</p>
             <p>{{ $agd->date }}</p>
             <p>{{ $agd->location }}</p>
+            <p>Dibuat: {{ $agd->created_at }}</p>
+            <p>Diupdate: {{ $agd->updated_at }}</p>
             <form action="{{ route('agenda.destroy', $agd->id) }}" method="POST">
                 <a href="{{ route('agenda.show', $agd->id) }}" class="tombol">Detail</a>
                 <a href="{{ route('agenda.edit', $agd->id) }}" class="tombol">Edit</a>
