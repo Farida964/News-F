@@ -17,7 +17,7 @@
             </div>
             
             <div class="link">
-           <a href="">Profil</a>
+           <a href="{{ route('agenda.create') }}">Profil</a>
            <a href="">Aspirasi</a>
            <a href="">Announcement</a>
            <a href="">Agenda</a>

@@ -25,29 +25,31 @@
            </div>
         </nav>
     </div>
-    <br>
-<a href="{{ route('agenda.index') }}" class="tombol">Back</a>
-<h3>Mau Bikin Agenda Apa Nih?</h3>
-<form action="{{ route('agenda.store') }}" method="POST">
-    @csrf
-    <div class="form_agd">
-        <label for="">Title : </label>
-        <input type="text" name="title" id="" placeholder="Masukkan Judul Agenda">
 
-        <label for="">Description : </label>
-        <textarea name="description" id="" placeholder="Masukkan deskripsi" ></textarea>
-           
 
-        <label for="">Date : </label>
-        <input type="date" name="date" id="" >
-
-        <label for="">Location :</label>
-        <input type="text" name="location" id="" placeholder="Masukkan Lokasi Agenda">
-
-    </div>
-    <button type="submit" class="tombol">Submit</button>
-</form>
-
+ <!-- coba -->
+         <h3>Detail Show</h3>
+         <a href="{{ route('agenda.index') }}" class="tombol">Kembali</a>
+         <table class="table">
+            <thead class="table-header">
+                <tr>
+                    <th>Titile</th>
+                    <th>Description</th>
+                    <th>Date</th>
+                    <th>Location</th>
+                </tr>
+            </thead>
+            <tbody class="table-body">
+                <tr>
+                   
+                    <td>{{ $agenda-> title }}</td>
+                    <td>{{ $agenda-> description }}</td>
+                    <td>{{ $agenda-> date }}</td>
+                    <td>{{ $agenda-> location }}</td>
+                </tr>
+            </tbody>
+         </table>
+    
 </body>
 </html>
 

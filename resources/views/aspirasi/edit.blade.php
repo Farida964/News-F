@@ -25,27 +25,26 @@
            </div>
         </nav>
     </div>
-    <br>
-<a href="{{ route('agenda.index') }}" class="tombol">Back</a>
-<h3>Mau Bikin Agenda Apa Nih?</h3>
-<form action="{{ route('agenda.store') }}" method="POST">
+<h3>Edit Agenda</h3>
+<form action="{{ route('agenda.update', $agenda->id) }}" method="POST">
     @csrf
+    @method('PUT')
     <div class="form_agd">
         <label for="">Title : </label>
-        <input type="text" name="title" id="" placeholder="Masukkan Judul Agenda">
+        <input type="text" name="title" id="" value="{{ $agenda->title }}" >
 
         <label for="">Description : </label>
-        <textarea name="description" id="" placeholder="Masukkan deskripsi" ></textarea>
+        <textarea name="description" id="" value="{{ $agenda->description }}" ></textarea>
            
 
         <label for="">Date : </label>
-        <input type="date" name="date" id="" >
+        <input type="date" name="date" id="" value="{{ $agenda->date }}" >
 
         <label for="">Location :</label>
-        <input type="text" name="location" id="" placeholder="Masukkan Lokasi Agenda">
+        <input type="text" name="location" id="" value="{{ $agenda->location }}">
 
     </div>
-    <button type="submit" class="tombol">Submit</button>
+    <button type="submit" class="tombol">Update</button>
 </form>
 
 </body>

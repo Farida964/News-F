@@ -185,6 +185,21 @@
     margin-top: 8px;
 }
 
+.tombol-float {
+    position: fixed;
+    right: 32px;
+    bottom: 32px;
+    z-index: 1000;
+    background-color: #007bff;
+    color: #fff;
+    padding: 14px 28px;
+    border-radius: 50px;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: background 0.2s;
+}
+
 .tombol:hover {
     background: #3e8e1a;
 }
