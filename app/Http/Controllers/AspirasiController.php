@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Agenda;
+use App\Models\Aspirasi;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 
-class AgendaController extends Controller
+class AspirasiController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class AgendaController extends Controller
      */
     public function index(): View
     {
-        $allAgenda = Agenda::all();
-        return view('agenda.index', compact('allAgenda'));
+        $allAspirasi = Aspirasi::all();
+        return view('aspirasi.index', compact('allAspirasi'));
     }
 
     /**
@@ -28,7 +28,7 @@ class AgendaController extends Controller
      */
     public function create()
     {
-        return view('Agenda.create');
+        return view('Aspirasi.create');
     }
 
     /**
@@ -43,15 +43,13 @@ class AgendaController extends Controller
         $validatedData = $request->validate([
             'title' =>'required',
             'description' => 'required',
-            'date' => 'required',
-            'location' => 'required',
         ]);
 
         //simpan data
-        Agenda::create( $validatedData);
+        Aspirasi::create( $validatedData);
 
         //redirect
-        return redirect()->route('agenda.index');
+        return redirect()->route('aspirasi.index');
     }
 
     /**
@@ -60,9 +58,9 @@ class AgendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Agenda $agenda)
+    public function show(Aspirasi $aspirasi)
     {
-        return view('agenda.show', compact('agenda'));
+        return view('aspirasi.show', compact('aspirasi'));
     }
 
     /**
@@ -73,8 +71,8 @@ class AgendaController extends Controller
      */
     public function edit($id)
     {
-        $agenda = Agenda::findOrFail($id);
-        return view('agenda.edit', compact('agenda'));
+        $aspirasi = Aspirasi::findOrFail($id);
+        return view('aspirasi.edit', compact('aspirasi'));
     }
 
     /**
@@ -84,22 +82,19 @@ class AgendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Agenda $agenda)
+    public function update(Request $request, Aspirasi $aspirasi)
     {
-           //buat validasi
+        //buat validasi
         $validatedData = $request->validate([
             'title' =>'required',
             'description' => 'required',
-            'date' => 'required',
-            'location' => 'required',
         ]);
 
-        //simpan data
-        $agenda->update( $validatedData);
+         //simpan data
+        $aspirasi->update( $validatedData);
 
         //redirect
-        return redirect()->route('agenda.index');
-    
+        return redirect()->route('aspirasi.index');
     }
 
     /**
@@ -108,9 +103,9 @@ class AgendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Agenda $agenda)
+    public function destroy(Aspirasi $aspirasi)
     {
-        $agenda->delete();
-        return redirect()->route('agenda.index');
+        $aspirasi->delete();
+        return redirect()->route('aspirasi.index');
     }
 }

@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
      <link rel="stylesheet" href="{{ asset('assets/css/agenda.css') }}">
-    <title>Agenda</title>
+    <title>Membuat Agenda</title>
 </head>
 <body>
      <!-- container nav -->
@@ -18,9 +18,9 @@
             
             <div class="link">
            <a href="">Profil</a>
-           <a href="">Aspirasi</a>
+           <a href="{{ route('aspirasi.index') }}">Aspirasi</a>
            <a href="">Announcement</a>
-           <a href="">Agenda</a>
+           <a href="{{ route('agenda.index') }}">Agenda</a>
            <a href="">Competition</a>
            </div>
         </nav>

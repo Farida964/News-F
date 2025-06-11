@@ -2,10 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Competition;
+use App\Models\Announcement;
 use Illuminate\Http\Request;
 
-class CompetitionController extends Controller
+class AnnouncementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +41,10 @@ class CompetitionController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Competition  $competition
+     * @param  \App\Models\Announcement  $announcement
      * @return \Illuminate\Http\Response
      */
-    public function show(Competition $competition)
+    public function show(Announcement $announcement)
     {
         //
     }
@@ -52,10 +52,10 @@ class CompetitionController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Competition  $competition
+     * @param  \App\Models\Announcement  $announcement
      * @return \Illuminate\Http\Response
      */
-    public function edit(Competition $competition)
+    public function edit(Announcement $announcement)
     {
         //
     }
@@ -64,10 +64,10 @@ class CompetitionController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Competition  $competition
+     * @param  \App\Models\Announcement  $announcement
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Competition $competition)
+    public function update(Request $request, Announcement $announcement)
     {
         //
     }
@@ -75,10 +75,10 @@ class CompetitionController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Competition  $competition
+     * @param  \App\Models\Announcement  $announcement
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Competition $competition)
+    public function destroy(Announcement $announcement)
     {
         //
     }

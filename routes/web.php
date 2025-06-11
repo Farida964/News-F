@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\AspirasiController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,3 +20,4 @@ Route::get('/', function () {
 });
 
 Route::resource('agenda',AgendaController::class);
+Route::resource('aspirasi',AspirasiController::class);

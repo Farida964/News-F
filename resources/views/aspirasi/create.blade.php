@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
      <link rel="stylesheet" href="{{ asset('assets/css/agenda.css') }}">
-    <title>Agenda</title>
+    <title>Masukkan Aspirasi</title>
 </head>
 <body>
      <!-- container nav -->
@@ -18,32 +18,25 @@
             
             <div class="link">
            <a href="">Profil</a>
-           <a href="">Aspirasi</a>
+           <a href="{{ route('aspirasi.index') }}">Aspirasi</a>
            <a href="">Announcement</a>
-           <a href="">Agenda</a>
+           <a href="{{ route('agenda.index') }}">Agenda</a>
            <a href="">Competition</a>
            </div>
         </nav>
     </div>
     <br>
-<a href="{{ route('agenda.index') }}" class="tombol">Back</a>
-<h3>Mau Bikin Agenda Apa Nih?</h3>
-<form action="{{ route('agenda.store') }}" method="POST">
+<a href="{{ route('aspirasi.index') }}" class="tombol">Back</a>
+<h3>Masukkan aspirasi kamu</h3>
+<p>Kami akan menjaga rahasia data Kamu</p>
+<form action="{{ route('aspirasi.store') }}" method="POST">
     @csrf
     <div class="form_agd">
         <label for="">Title : </label>
-        <input type="text" name="title" id="" placeholder="Masukkan Judul Agenda">
+        <input type="text" name="title" id="" placeholder="Title">
 
         <label for="">Description : </label>
-        <textarea name="description" id="" placeholder="Masukkan deskripsi" ></textarea>
-           
-
-        <label for="">Date : </label>
-        <input type="date" name="date" id="" >
-
-        <label for="">Location :</label>
-        <input type="text" name="location" id="" placeholder="Masukkan Lokasi Agenda">
-
+        <textarea name="description" id="" placeholder="Masukkan aspirasimu" ></textarea>
     </div>
     <button type="submit" class="tombol">Submit</button>
 </form>

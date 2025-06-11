@@ -8,7 +8,7 @@
     <title>Agenda</title>
 </head>
 <body>
-     <!-- container nav -->
+    <!-- container nav -->
     <div class="container">
         <nav class="navbar">
             <div class="logo">
@@ -18,9 +18,9 @@
             
             <div class="link">
            <a href="">Profil</a>
-           <a href="">Aspirasi</a>
+           <a href="{{ route('aspirasi.index') }}">Aspirasi</a>
            <a href="">Announcement</a>
-           <a href="">Agenda</a>
+           <a href="{{ route('agenda.index') }}">Agenda</a>
            <a href="">Competition</a>
            </div>
         </nav>
@@ -28,6 +28,7 @@
 
     <!-- card agenda -->
      <br>
+     <a href="{{ route('aspirasi.index') }}" class="tombol">Back</a>
       <a href="{{ route('agenda.create') }}" class="tombol tombol-float">Add +</a>
     <div class="container_card">
     @foreach($allAgenda as $key => $agd)
