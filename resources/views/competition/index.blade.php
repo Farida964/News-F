@@ -5,10 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
      <link rel="stylesheet" href="{{ asset('assets/css/agenda.css') }}">
-    <title>Agenda</title>
+    <title>Competition</title>
 </head>
 <body>
-     <!-- container nav -->
+    <!-- container nav -->
     <div class="container">
         <nav class="navbar">
             <div class="logo">
@@ -17,10 +17,10 @@
             </div>
             
             <div class="link">
-           <a href="{{ route('agenda.create') }}">Profil</a>
-           <a href="">Aspirasi</a>
+           <a href="">Profil</a>
+           <a href="{{ route('aspirasi.index') }}">Aspirasi</a>
            <a href="">Announcement</a>
-           <a href="">Agenda</a>
+           <a href="{{ route('agenda.index') }}">Agenda</a>
            <a href="">Competition</a>
            </div>
         </nav>
@@ -28,20 +28,21 @@
 
     <!-- card agenda -->
      <br>
-      <a href="{{ route('agenda.create') }}" class="tombol tombol-float">Add +</a>
+     <a href="{{ route('competition.index') }}" class="tombol">Back</a>
+      <a href="{{ route('competition.create') }}" class="tombol tombol-float">Add +</a>
     <div class="container_card">
-    @foreach($allAgenda as $key => $agd)
+    @foreach($allCompetition as $key => $cmp)
         <div class="card-item">
             <img src="{{ asset('assets/img/CONT01.webp') }}" alt="">
-            <h2>{{ $agd->title }}</h2>
-            <p>{{ $agd->description }}</p>
-            <p>{{ $agd->date }}</p>
-            <p>{{ $agd->location }}</p>
-            <p>Dibuat: {{ $agd->created_at }}</p>
-            <p>Diupdate: {{ $agd->updated_at }}</p>
-            <form action="{{ route('agenda.destroy', $agd->id) }}" method="POST">
-                <a href="{{ route('agenda.show', $agd->id) }}" class="tombol">Detail</a>
-                <a href="{{ route('agenda.edit', $agd->id) }}" class="tombol">Edit</a>
+            <h2>{{ $cmp->title }}</h2>
+            <p>{{ $cmp->description }}</p>
+            <p>{{ $cmp->date }}</p>
+            <p>{{ $cmp->location }}</p>
+            <p>Dibuat: {{ $cmp->created_at }}</p>
+            <p>Diupdate: {{ $cmp->updated_at }}</p>
+            <form action="{{ route('competition.destroy', $cmp->id) }}" method="POST">
+                <a href="{{ route('competition.show', $cmp->id) }}" class="tombol">Detail</a>
+                <a href="{{ route('competition.edit', $cmp->id) }}" class="tombol">Edit</a>
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="tombol">Hapus</button>

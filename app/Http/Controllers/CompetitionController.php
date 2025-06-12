@@ -2,10 +2,9 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Announcement;
 use Illuminate\Http\Request;
 
-class AnnouncementController extends Controller
+class CompetitionController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -41,10 +40,10 @@ class AnnouncementController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Announcement  $announcement
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Announcement $announcement)
+    public function show($id)
     {
         //
     }
@@ -52,10 +51,10 @@ class AnnouncementController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Announcement  $announcement
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Announcement $announcement)
+    public function edit($id)
     {
         //
     }
@@ -64,10 +63,10 @@ class AnnouncementController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Announcement  $announcement
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Announcement $announcement)
+    public function update(Request $request, $id)
     {
         //
     }
@@ -75,10 +74,10 @@ class AnnouncementController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Announcement  $announcement
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Announcement $announcement)
+    public function destroy($id)
     {
         //
     }

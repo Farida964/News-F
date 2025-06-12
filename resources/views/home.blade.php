@@ -18,10 +18,10 @@
             
             <div class="link">
            <a href="">Profil</a>
-           <a href="">Aspirasi</a>
+           <a href="{{ route('aspirasi.index') }}">Aspirasi</a>
            <a href="">Announcement</a>
            <a href="{{ route('agenda.index') }}">Agenda</a>
-           <a href="">Competition</a>
+           <a href="{{ route('competition.index') }}">Competition</a>
            </div>
         </nav>
     </div>
