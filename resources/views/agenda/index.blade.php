@@ -17,11 +17,11 @@
             </div>
             
             <div class="link">
-           <a href="">Profil</a>
+            <a href="">Profil</a>
            <a href="{{ route('aspirasi.index') }}">Aspirasi</a>
-           <a href="">Announcement</a>
+           <a href="{{ route('announcement.index') }}">Announcement</a>
            <a href="{{ route('agenda.index') }}">Agenda</a>
-           <a href="">Competition</a>
+           <a href="{{ route('competition.index') }}">Competition</a>
            </div>
         </nav>
     </div>
@@ -35,9 +35,9 @@
         <div class="card-item">
             <img src="{{ asset('assets/img/CONT01.webp') }}" alt="">
             <h2>{{ $agd->title }}</h2>
-            <p>{{ $agd->description }}</p>
-            <p>{{ $agd->date }}</p>
-            <p>{{ $agd->location }}</p>
+            <p>Caption : {{ $agd->description }}</p>
+            <p>Date : {{ $agd->date }}</p>
+            <p>Location : {{ $agd->location }}</p>
             <p>Dibuat: {{ $agd->created_at }}</p>
             <p>Diupdate: {{ $agd->updated_at }}</p>
             <form action="{{ route('agenda.destroy', $agd->id) }}" method="POST">

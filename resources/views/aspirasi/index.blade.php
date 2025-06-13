@@ -19,14 +19,14 @@
             <div class="link">
            <a href="">Profil</a>
            <a href="{{ route('aspirasi.index') }}">Aspirasi</a>
-           <a href="">Announcement</a>
+           <a href="{{ route('announcement.index') }}">Announcement</a>
            <a href="{{ route('agenda.index') }}">Agenda</a>
-           <a href="">Competition</a>
+           <a href="{{ route('competition.index') }}">Competition</a>
            </div>
         </nav>
     </div>
 
-    <!-- card agenda -->
+    <!-- card aspirasi -->
      <br>
      <a href="{{ route('aspirasi.index') }}" class="tombol">Back</a>
       <a href="{{ route('aspirasi.create') }}" class="tombol tombol-float">Add +</a>
@@ -34,7 +34,7 @@
     @foreach($allAspirasi as $key => $asp)
         <div class="card-item">
             <h2>{{ $asp->title }}</h2>
-            <p>{{ $asp->description }}</p>
+            <p>Aspirasi : {{ $asp->description }}</p>
             <p>Dibuat: {{ $asp->created_at }}</p>
             <p>Diupdate: {{ $asp->updated_at }}</p>
             <form action="{{ route('aspirasi.destroy', $asp->id) }}" method="POST">

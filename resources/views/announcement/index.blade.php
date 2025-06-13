@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-     <link rel="stylesheet" href="{{ asset('assets/css/agenda.css') }}">
-    <title>Agenda</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/agenda.css') }}">
+    <title>Upload Announcement</title>
 </head>
 <body>
      <!-- container nav -->
@@ -17,31 +17,31 @@
             </div>
             
             <div class="link">
-           <a href="{{ route('agenda.create') }}">Profil</a>
-           <a href="">Aspirasi</a>
-           <a href="">Announcement</a>
-           <a href="">Agenda</a>
-           <a href="">Competition</a>
+           <a href="">Profil</a>
+           <a href="{{ route('aspirasi.index') }}">Aspirasi</a>
+           <a href="{{ route('announcement.index') }}">Announcement</a>
+           <a href="{{ route('agenda.index') }}">Agenda</a>
+           <a href="{{ route('competition.index') }}">Competition</a>
            </div>
         </nav>
     </div>
 
-    <!-- card agenda -->
+    <!-- card announcement -->
      <br>
-      <a href="{{ route('agenda.create') }}" class="tombol tombol-float">Add +</a>
+      <a href="{{ route('announcement.create') }}" class="tombol tombol-float">Add +</a>
     <div class="container_card">
-    @foreach($allAgenda as $key => $agd)
+    @foreach($allAnnouncement as $key => $ann)
         <div class="card-item">
             <img src="{{ asset('assets/img/CONT01.webp') }}" alt="">
-            <h2>{{ $agd->title }}</h2>
-            <p>{{ $agd->description }}</p>
-            <p>{{ $agd->date }}</p>
-            <p>{{ $agd->location }}</p>
-            <p>Dibuat: {{ $agd->created_at }}</p>
-            <p>Diupdate: {{ $agd->updated_at }}</p>
-            <form action="{{ route('agenda.destroy', $agd->id) }}" method="POST">
-                <a href="{{ route('agenda.show', $agd->id) }}" class="tombol">Detail</a>
-                <a href="{{ route('agenda.edit', $agd->id) }}" class="tombol">Edit</a>
+            <h2>{{ $ann->title }}</h2>
+            <p>Caption : {{ $ann->description }}</p>
+            <p>Informasi : {{ $ann->info }}</p>
+            <p>Date : {{ $ann->date }}</p>
+            <p>Dibuat: {{ $ann->created_at }}</p>
+            <p>Diupdate: {{ $ann->updated_at }}</p>
+            <form action="{{ route('announcement.destroy', $ann->id) }}" method="POST">
+                <a href="{{ route('announcement.show', $ann->id) }}" class="tombol">Detail</a>
+                <a href="{{ route('announcement.edit', $ann->id) }}" class="tombol">Edit</a>
                 @csrf
                 @method('DELETE')
                 <button type="submit" class="tombol">Hapus</button>
@@ -54,43 +54,6 @@
     
                
 </div>
-
- <!-- coba tabel database -->
-         <!-- <h3>Agenda</h3>
-         <a href="{{ route('agenda.create') }}" class="tombol">Tambah</a>
-         <table class="table">
-            <thead class="table-header">
-                <tr>
-                    <th>Titile</th>
-                    <th>Description</th>
-                    <th>Date</th>
-                    <th>Location</th>
-                    <th>Aksi</th>
-                </tr>
-            </thead>
-            <tbody class="table-body"> -->
-                <!-- perulangan -->
-                <!-- @foreach($allAgenda as $key => $agd)
-                <tr>
-                    <td>{{ $agd-> title }}</td>
-                    <td>{{ $agd-> description }}</td>
-                    <td>{{ $agd-> date }}</td>
-                    <td>{{ $agd-> location }}</td>
-                    <td>
-                        <form action="{{ route('agenda.destroy', $agd->id) }}" method="POST">
-                            <a href="{{ route('agenda.show', $agd->id) }}" class="tombol">Detail</a>
-                            <a href="{{ route('agenda.edit', $agd->id) }}" class="tombol">Edit</a> -->
-                            <!-- hapus -->
-                
-                             <!-- @csrf
-                            @method('DELETE')
-                            <button type="submit" class="tombol">Hapus</button>
-                        </form>
-                    </td>
-                </tr>
-                @endforeach
-            </tbody>
-         </table> -->
     
 </body>
 </html>

@@ -3,6 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\Competition;
+use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Response;
+use Illuminate\View\View;
 
 class CompetitionController extends Controller
 {
@@ -11,9 +15,10 @@ class CompetitionController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(): View
     {
-        //
+        $allCompetition = Competition::all();
+        return view('competition.index', compact('allCompetition'));
     }
 
     /**
@@ -23,7 +28,7 @@ class CompetitionController extends Controller
      */
     public function create()
     {
-        //
+        return view('Competition.create');
     }
 
     /**
@@ -34,7 +39,19 @@ class CompetitionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //buat validasi
+        $validatedData = $request->validate([
+            'title' =>'required',
+            'description' => 'required',
+            'date' => 'required',
+            'location' => 'required',
+        ]);
+
+        //simpan data
+        Competition::create( $validatedData);
+
+        //redirect
+        return redirect()->route('competition.index');
     }
 
     /**
@@ -43,9 +60,9 @@ class CompetitionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show(Competition $competition)
     {
-        //
+        return view('competition.show', compact('competition'));
     }
 
     /**
@@ -56,7 +73,8 @@ class CompetitionController extends Controller
      */
     public function edit($id)
     {
-        //
+        $competition = Competition::findOrFail($id);
+        return view('competition.edit', compact('competition'));
     }
 
     /**
@@ -66,9 +84,21 @@ class CompetitionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Competition $competition)
     {
-        //
+        //buat validasi
+        $validatedData = $request->validate([
+            'title' =>'required',
+            'description' => 'required',
+            'date' => 'required',
+            'location' => 'required',
+        ]);
+
+        //simpan data
+        $competition->update( $validatedData);
+
+        //redirect
+        return redirect()->route('competition.index');
     }
 
     /**
@@ -77,8 +107,9 @@ class CompetitionController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
+    public function destroy(Competition $competition)
     {
-        //
+        $competition->delete();
+        return redirect()->route('competition.index');
     }
 }

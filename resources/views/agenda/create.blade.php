@@ -3,9 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-     <link rel="stylesheet" href="{{ asset('assets/css/agenda.css') }}">
-    <title>Membuat Agenda</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/agenda.css') }}">
+    <title>Upload Agenda</title>
 </head>
 <body>
      <!-- container nav -->
@@ -19,9 +19,9 @@
             <div class="link">
            <a href="">Profil</a>
            <a href="{{ route('aspirasi.index') }}">Aspirasi</a>
-           <a href="">Announcement</a>
+           <a href="{{ route('announcement.index') }}">Announcement</a>
            <a href="{{ route('agenda.index') }}">Agenda</a>
-           <a href="">Competition</a>
+           <a href="{{ route('competition.index') }}">Competition</a>
            </div>
         </nav>
     </div>
@@ -32,17 +32,17 @@
     @csrf
     <div class="form_agd">
         <label for="">Title : </label>
-        <input type="text" name="title" id="" placeholder="Masukkan Judul Agenda">
+        <input type="text" name="title" id="" placeholder="Title">
 
         <label for="">Description : </label>
-        <textarea name="description" id="" placeholder="Masukkan deskripsi" ></textarea>
+        <textarea name="description" id="" placeholder="Caption" ></textarea>
            
 
         <label for="">Date : </label>
         <input type="date" name="date" id="" >
 
         <label for="">Location :</label>
-        <input type="text" name="location" id="" placeholder="Masukkan Lokasi Agenda">
+        <input type="text" name="location" id="" placeholder="Location">
 
     </div>
     <button type="submit" class="tombol">Submit</button>

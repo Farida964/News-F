@@ -5,15 +5,15 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Competition extends Model
+class Announcement extends Model
 {
-    protected $table = 'competition';
+    protected $table = 'announcement';
     protected $primaryKey = 'id';
     protected $fillable = [
         'title',
         'description',
+        'info',
         'date',
-        'location',
     ];
     use HasFactory;
 }

@@ -3,12 +3,12 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Agenda;
+use App\Models\Announcement;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Response;
 use Illuminate\View\View;
 
-class AgendaController extends Controller
+class AnnouncementController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -17,8 +17,8 @@ class AgendaController extends Controller
      */
     public function index(): View
     {
-        $allAgenda = Agenda::all();
-        return view('agenda.index', compact('allAgenda'));
+        $allAnnouncement = Announcement::all();
+        return view('announcement.index', compact('allAnnouncement'));
     }
 
     /**
@@ -28,7 +28,7 @@ class AgendaController extends Controller
      */
     public function create()
     {
-        return view('Agenda.create');
+        return view('Announcement.create');
     }
 
     /**
@@ -41,17 +41,17 @@ class AgendaController extends Controller
     {
         //buat validasi
         $validatedData = $request->validate([
-            'title' =>'required',
+            'title' => 'required',
             'description' => 'required',
+            'info' => '',
             'date' => 'required',
-            'location' => 'required',
         ]);
 
         //simpan data
-        Agenda::create( $validatedData);
+        Announcement::create($validatedData);
 
         //redirect
-        return redirect()->route('agenda.index');
+        return redirect()->route('announcement.index');
     }
 
     /**
@@ -60,9 +60,9 @@ class AgendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Agenda $agenda)
+    public function show(Announcement $announcement)
     {
-        return view('agenda.show', compact('agenda'));
+        return view('announcement.show', compact('announcement'));
     }
 
     /**
@@ -73,8 +73,8 @@ class AgendaController extends Controller
      */
     public function edit($id)
     {
-        $agenda = Agenda::findOrFail($id);
-        return view('agenda.edit', compact('agenda'));
+        $announcement = Announcement::findOrFail($id);
+        return view('Announcement.edit', compact('announcement'));
     }
 
     /**
@@ -84,22 +84,22 @@ class AgendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Agenda $agenda)
+    public function update(Request $request, Announcement $announcement)
     {
         //buat validasi
         $validatedData = $request->validate([
-            'title' =>'required',
+            'title' => 'required',
             'description' => 'required',
+            'info' => 'required',
             'date' => 'required',
-            'location' => 'required',
         ]);
 
-        //simpan data
-        $agenda->update( $validatedData);
+        //update data
+        $announcement->update($validatedData);
 
         //redirect
-        return redirect()->route('agenda.index');
-    
+        return redirect()->route('announcement.index');
+
     }
 
     /**
@@ -108,9 +108,12 @@ class AgendaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Agenda $agenda)
+    public function destroy(Announcement $announcement)
     {
-        $agenda->delete();
-        return redirect()->route('agenda.index');
+        //hapus data
+        $announcement->delete();
+
+        //redirect
+        return redirect()->route('announcement.index');
     }
 }

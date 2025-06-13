@@ -3,10 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Upload Competition</title>
+    <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
+     <link rel="stylesheet" href="{{ asset('assets/css/agenda.css') }}">
 </head>
 <body>
     
-<p>bnmsbnb</p>
+  <!-- container nav -->
+    <div class="container">
+        <nav class="navbar">
+            <div class="logo">
+                <!-- <img src="" alt=""> -->
+                <h1>News-F</h1>
+            </div>
+            
+            <div class="link">
+           <a href="">Profil</a>
+           <a href="{{ route('aspirasi.index') }}">Aspirasi</a>
+           <a href="{{ route('announcement.index') }}">Announcement</a>
+           <a href="{{ route('agenda.index') }}">Agenda</a>
+           <a href="{{ route('competition.index') }}">Competition</a>
+           </div>
+        </nav>
+    </div>
+    <br>
+<a href="{{ route('competition.index') }}" class="tombol">Back</a>
+<h3>Mau Sharing Kompetisi Apa?</h3>
+<form action="{{ route('competition.store') }}" method="POST">
+    @csrf
+    <div class="form_agd">
+        <label for="">Title : </label>
+        <input type="text" name="title" id="" placeholder="Title">
+
+        <label for="">Description : </label>
+        <textarea name="description" id="" placeholder="Caption" ></textarea>
+           
+
+        <label for="">Date : </label>
+        <input type="date" name="date" id="" >
+
+        <label for="">Location :</label>
+        <input type="text" name="location" id="" placeholder="Location">
+
+    </div>
+    <button type="submit" class="tombol">Submit</button>
+</form>
+
 </body>
 </html>
+

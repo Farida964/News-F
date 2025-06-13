@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
      <link rel="stylesheet" href="{{ asset('assets/css/agenda.css') }}">
-    <title>Agenda</title>
+    <title>Edit Aspirasi</title>
 </head>
 <body>
      <!-- container nav -->
@@ -17,31 +17,24 @@
             </div>
             
             <div class="link">
-           <a href="">Profil</a>
-           <a href="">Aspirasi</a>
-           <a href="">Announcement</a>
-           <a href="">Agenda</a>
-           <a href="">Competition</a>
+            <a href="">Profil</a>
+           <a href="{{ route('aspirasi.index') }}">Aspirasi</a>
+           <a href="{{ route('announcement.index') }}">Announcement</a>
+           <a href="{{ route('agenda.index') }}">Agenda</a>
+           <a href="{{ route('competition.index') }}">Competition</a>
            </div>
         </nav>
     </div>
-<h3>Edit Agenda</h3>
-<form action="{{ route('agenda.update', $agenda->id) }}" method="POST">
+<h3>Edit Aspirasi</h3>
+<form action="{{ route('aspirasi.update', $aspirasi->id) }}" method="POST">
     @csrf
     @method('PUT')
     <div class="form_agd">
         <label for="">Title : </label>
-        <input type="text" name="title" id="" value="{{ $agenda->title }}" >
+        <input type="text" name="title" id="" value="{{ $aspirasi->title }}" >
 
         <label for="">Description : </label>
-        <textarea name="description" id="" value="{{ $agenda->description }}" ></textarea>
-           
-
-        <label for="">Date : </label>
-        <input type="date" name="date" id="" value="{{ $agenda->date }}" >
-
-        <label for="">Location :</label>
-        <input type="text" name="location" id="" value="{{ $agenda->location }}">
+        <textarea name="description" id="" value="{{ $aspirasi->description }}" ></textarea>
 
     </div>
     <button type="submit" class="tombol">Update</button>
