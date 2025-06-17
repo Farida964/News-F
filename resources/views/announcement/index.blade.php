@@ -6,23 +6,71 @@
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/agenda.css') }}">
     <title>Upload Announcement</title>
+    <style>
+        .profile-dropdown {
+            position: relative;
+            display: inline-block;
+        }
+        .profile-logo {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            cursor: pointer;
+            object-fit: cover;
+        }
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            right: 0;
+            background-color: #fff;
+            min-width: 140px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border-radius: 8px;
+            z-index: 100;
+        }
+        .dropdown-content a, .dropdown-content form button {
+            color: #333;
+            padding: 10px 18px;
+            text-decoration: none;
+            display: block;
+            background: none;
+            border: none;
+            width: 100%;
+            text-align: left;
+            cursor: pointer;
+            font: inherit;
+        }
+        .dropdown-content a:hover, .dropdown-content form button:hover {
+            background-color: #f0f0f0;
+        }
+    </style>
 </head>
 <body>
      <!-- container nav -->
     <div class="container">
-        <nav class="navbar">
+        <nav class="navbar" style="display: flex; justify-content: space-between; align-items: center;">
             <div class="logo">
-                <!-- <img src="" alt=""> -->
                 <h1>News-F</h1>
             </div>
-            
-            <div class="link">
-           <a href="">Profil</a>
-           <a href="{{ route('aspirasi.index') }}">Aspirasi</a>
-           <a href="{{ route('announcement.index') }}">Announcement</a>
-           <a href="{{ route('agenda.index') }}">Agenda</a>
-           <a href="{{ route('competition.index') }}">Competition</a>
-           </div>
+            <div class="link" style="display: flex; align-items: center; gap: 24px;">
+                <a href="{{ url('/home') }}">Home</a>
+                <a href="{{ route('aspirasi.index') }}">Aspirasi</a>
+                <a href="{{ route('announcement.index') }}">Announcement</a>
+                <a href="{{ route('agenda.index') }}">Agenda</a>
+                <a href="{{ route('competition.index') }}">Competition</a>
+                @auth
+                <div class="profile-dropdown">
+                    <img src="/images/sttnf-logo.png" alt="Profil" class="profile-logo" id="profileLogo">
+                    <div class="dropdown-content" id="profileDropdown">
+                        <a href="{{ route('profile.edit') }}">Edit Profil</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit">Logout</button>
+                        </form>
+                    </div>
+                </div>
+                @endauth
+            </div>
         </nav>
     </div>
 
@@ -51,10 +99,26 @@
 </div>
 
 
-    
-               
+
+
 </div>
-    
+
+ <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const logo = document.getElementById('profileLogo');
+            const dropdown = document.getElementById('profileDropdown');
+            if (logo) {
+                document.addEventListener('click', function(e) {
+                    if (logo.contains(e.target)) {
+                        dropdown.style.display = dropdown.style.display === 'block' ? 'none' : 'block';
+                    } else if (!dropdown.contains(e.target)) {
+                        dropdown.style.display = 'none';
+                    }
+                });
+            }
+        });
+    </script>
+
 </body>
 </html>
 
