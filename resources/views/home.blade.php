@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>News-F Home</title>
     <link rel="stylesheet" href="{{ asset('assets/css/home.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/agenda.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/aspirasi.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}">
     <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
 </head>
@@ -24,7 +24,7 @@
                 <a href="{{ route('competition.index') }}">Competition</a>
                 @auth
                 <div class="profile-dropdown">
-                    <img src="{{ asset('assets/img/newsapp.png') }}" alt="Profil" class="profile-logo" id="profileLogo">
+                    <img src="{{ asset('assets/img/LOGO (2).png') }}" alt="Profil" class="profile-logo" id="profileLogo">
                     <div class="dropdown-content" id="profileDropdown">
                         <a href="{{ route('profile.edit') }}">Edit Profil</a>
                         <form method="POST" action="{{ route('logout') }}">
@@ -42,7 +42,7 @@
 <!-- main -->
 <div class="main">
     <section class="slider">
-        <div class="slide active"><img src="{{ asset('assets/img/gedung.webp') }}" alt="Slide 1"></div>
+        <div class="slide active"><img src="{{ asset('assets/img/gedunga.jpg') }}" alt="Slide 1"></div>
         <div class="slide"><img src="{{ asset('assets/img/newsapp.png') }}" alt="Slide 2"></div>
         <div class="slide"><img src="{{ asset('assets/img/gedungnf.jpg') }}" alt="Slide 3"></div>
 
@@ -51,7 +51,7 @@
     </section>
 
     <section class="info">
-        <img src="{{ asset('assets/img/newsapp.png') }}" alt="Campus">
+        <img src="{{ asset('assets/img/LOGO (2).png') }}" alt="Campus">
         <div class="info-text">
             <h2>Welcome to News-F</h2>
             <p>Campus information portal: news, events, announcements, and student aspirations.</p>
@@ -69,8 +69,8 @@
                 <p class="caption">✍️ : {{ $agd->description }}</p>
                 <p>📅 : {{ $agd->date }}</p>
                 <p>📍 : {{ $agd->location }}</p>
-                <p>Uploaded: {{ $agd->created_at }}</p>
-                <p>Updated: {{ $agd->updated_at }}</p>
+                <p>Uploaded : {{ $agd->created_at }}</p>
+                <p>Updated : {{ $agd->updated_at }}</p>
                 <form action="{{ route('agenda.destroy', $agd->id) }}" method="POST">
                     <!-- <a href="{{ route('agenda.show', $agd->id) }}" class="detail">Detail</a> -->
                     @auth

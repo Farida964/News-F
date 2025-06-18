@@ -4,50 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/agenda.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/aspirasi.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}">
+    
     <title>Agenda</title>
-    <style>
-        .profile-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .profile-logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            object-fit: cover;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            right: 0;
-            background-color: #fff;
-            min-width: 140px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-radius: 8px;
-            z-index: 100;
-        }
-        .dropdown-content a, .dropdown-content form button {
-            color: #333;
-            padding: 10px 18px;
-            text-decoration: none;
-            display: block;
-            background: none;
-            border: none;
-            width: 100%;
-            text-align: left;
-            cursor: pointer;
-            font: inherit;
-        }
-        .dropdown-content a:hover, .dropdown-content form button:hover {
-            background-color: #f0f0f0;
-        }
-    </style>
 </head>
 <body>
-    <!-- container nav -->
-    <div class="container">
+   <!-- container nav -->
+
         <nav class="navbar" style="display: flex; justify-content: space-between; align-items: center;">
             <div class="logo">
                 <h1>News-F</h1>
@@ -60,7 +24,7 @@
                 <a href="{{ route('competition.index') }}">Competition</a>
                 @auth
                 <div class="profile-dropdown">
-                    <img src="/images/sttnf-logo.png" alt="Profil" class="profile-logo" id="profileLogo">
+                    <img src="{{ asset('assets/img/LOGO (2).png') }}" alt="Profil" class="profile-logo" id="profileLogo">
                     <div class="dropdown-content" id="profileDropdown">
                         <a href="{{ route('profile.edit') }}">Edit Profil</a>
                         <form method="POST" action="{{ route('logout') }}">
@@ -72,32 +36,30 @@
                 @endauth
             </div>
         </nav>
-    </div>
+
+<!-- endNav -->
 
     <!-- card agenda -->
     <br>
-    <a href="{{ route('aspirasi.index') }}" class="tombol">Back</a>
-    @auth
-        <a href="{{ route('agenda.create') }}" class="tombol tombol-float">Add +</a>
-    @endauth
+    <a href="{{ route('agenda.index') }}" class="back">Back</a>
+    <a href="{{ route('agenda.create') }}" class="add">Add +</a>
 
     <div class="container_card">
         @foreach($allAgenda as $key => $agd)
             <div class="card-item">
                 <img src="{{ asset('assets/img/CONT01.webp') }}" alt="">
                 <h2>{{ $agd->title }}</h2>
-                <p>Caption : {{ $agd->description }}</p>
-                <p>Date : {{ $agd->date }}</p>
-                <p>Location : {{ $agd->location }}</p>
-                <p>Dibuat: {{ $agd->created_at }}</p>
-                <p>Diupdate: {{ $agd->updated_at }}</p>
+                <p class="caption">✍️ : {{ $agd->description }}</p>
+                <p>📅 : {{ $agd->date }}</p>
+                <p>📍 : {{ $agd->location }}</p>
+                <p>Uploaded: {{ $agd->created_at }}</p>
+                <p>Updated: {{ $agd->updated_at }}</p>
                 <form action="{{ route('agenda.destroy', $agd->id) }}" method="POST">
-                    <a href="{{ route('agenda.show', $agd->id) }}" class="tombol">Detail</a>
                     @auth
-                        <a href="{{ route('agenda.edit', $agd->id) }}" class="tombol">Edit</a>
+                        <a href="{{ route('agenda.edit', $agd->id) }}" class="edit">Edit</a>
                         @csrf
                         @method('DELETE')
-                        <button type="submit" class="tombol">Hapus</button>
+                        <button type="submit" class="delete">Hapus</button>
                     @endauth
                 </form>
             </div>

@@ -4,50 +4,15 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
-    <link rel="stylesheet" href="{{ asset('assets/css/agenda.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/aspirasi.css') }}">
+    <link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}">
     <title>Upload Announcement</title>
-    <style>
-        .profile-dropdown {
-            position: relative;
-            display: inline-block;
-        }
-        .profile-logo {
-            width: 40px;
-            height: 40px;
-            border-radius: 50%;
-            cursor: pointer;
-            object-fit: cover;
-        }
-        .dropdown-content {
-            display: none;
-            position: absolute;
-            right: 0;
-            background-color: #fff;
-            min-width: 140px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
-            border-radius: 8px;
-            z-index: 100;
-        }
-        .dropdown-content a, .dropdown-content form button {
-            color: #333;
-            padding: 10px 18px;
-            text-decoration: none;
-            display: block;
-            background: none;
-            border: none;
-            width: 100%;
-            text-align: left;
-            cursor: pointer;
-            font: inherit;
-        }
-        .dropdown-content a:hover, .dropdown-content form button:hover {
-            background-color: #f0f0f0;
-        }
-    </style>
+    
 </head>
 <body>
+
      <!-- container nav -->
-    <div class="container">
+
         <nav class="navbar" style="display: flex; justify-content: space-between; align-items: center;">
             <div class="logo">
                 <h1>News-F</h1>
@@ -60,7 +25,7 @@
                 <a href="{{ route('competition.index') }}">Competition</a>
                 @auth
                 <div class="profile-dropdown">
-                    <img src="/images/sttnf-logo.png" alt="Profil" class="profile-logo" id="profileLogo">
+                    <img src="{{ asset('assets/img/LOGO (2).png') }}" alt="Profil" class="profile-logo" id="profileLogo">
                     <div class="dropdown-content" id="profileDropdown">
                         <a href="{{ route('profile.edit') }}">Edit Profil</a>
                         <form method="POST" action="{{ route('logout') }}">
@@ -72,36 +37,34 @@
                 @endauth
             </div>
         </nav>
-    </div>
+
+<!-- endNav -->
 
     <!-- card announcement -->
-     <br>
-      <a href="{{ route('announcement.create') }}" class="tombol tombol-float">Add +</a>
+    <br>
+    <a href="{{ route('announcement.index') }}" class="back">Back</a>
+    <a href="{{ route('announcement.create') }}" class="add">Add +</a>
     <div class="container_card">
     @foreach($allAnnouncement as $key => $ann)
         <div class="card-item">
             <img src="{{ asset('assets/img/CONT01.webp') }}" alt="">
             <h2>{{ $ann->title }}</h2>
-            <p>Caption : {{ $ann->description }}</p>
-            <p>Informasi : {{ $ann->info }}</p>
-            <p>Date : {{ $ann->date }}</p>
-            <p>Dibuat: {{ $ann->created_at }}</p>
-            <p>Diupdate: {{ $ann->updated_at }}</p>
+            <p class="caption">✍️ : {{ $ann->description }}</p>
+            <p>📢 Informasi Tambahan : {{ $ann->info }}</p>
+            <p>📅 : {{ $ann->date }}</p>
+            <p>Uploaded : {{ $ann->created_at }}</p>
+            <p>Updated: {{ $ann->updated_at }}</p>
             <form action="{{ route('announcement.destroy', $ann->id) }}" method="POST">
-                <a href="{{ route('announcement.show', $ann->id) }}" class="tombol">Detail</a>
-                <a href="{{ route('announcement.edit', $ann->id) }}" class="tombol">Edit</a>
+                <a href="{{ route('announcement.edit', $ann->id) }}" class="edit">Edit</a>
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="tombol">Hapus</button>
+                <button type="submit" class="delete">Hapus</button>
             </form>
         </div>
     @endforeach
 </div>
-
-
-
-
 </div>
+
 
  <script>
         document.addEventListener('DOMContentLoaded', function() {

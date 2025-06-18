@@ -3,14 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-     <link rel="stylesheet" href="{{ asset('assets/css/agenda.css') }}">
+     <link rel="stylesheet" href="{{ asset('assets/css/aspirasi.css') }}">
      <link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}">
+     <link rel="stylesheet" href="{{ asset('assets/css/footer.css') }}">
     <title>Aspirasi</title>
 
 </head>
 <body>
-    <!-- container nav -->
-    <div class="container">
+   <!-- container nav -->
+
         <nav class="navbar" style="display: flex; justify-content: space-between; align-items: center;">
             <div class="logo">
                 <h1>News-F</h1>
@@ -23,7 +24,7 @@
                 <a href="{{ route('competition.index') }}">Competition</a>
                 @auth
                 <div class="profile-dropdown">
-                    <img src="{{ asset('assets/img/newsapp.png') }}" alt="Profil" class="profile-logo" id="profileLogo">
+                    <img src="{{ asset('assets/img/LOGO (2).png') }}" alt="Profil" class="profile-logo" id="profileLogo">
                     <div class="dropdown-content" id="profileDropdown">
                         <a href="{{ route('profile.edit') }}">Edit Profil</a>
                         <form method="POST" action="{{ route('logout') }}">
@@ -35,25 +36,24 @@
                 @endauth
             </div>
         </nav>
-    </div>
 
-    <!-- card aspirasi -->
-     <br>
-     <a href="{{ route('aspirasi.index') }}" class="tombol">Back</a>
-      <a href="{{ route('aspirasi.create') }}" class="tombol tombol-float">Add +</a>
+<!-- endNav -->
+
+    <br>
+    <a href="{{ route('aspirasi.index') }}" class="back">Back</a>
+    <a href="{{ route('aspirasi.create') }}" class="add">Add +</a>
     <div class="container_card">
     @foreach($allAspirasi as $key => $asp)
         <div class="card-item">
             <h2>{{ $asp->title }}</h2>
-            <p>Aspirasi : {{ $asp->description }}</p>
-            <p>Dibuat: {{ $asp->created_at }}</p>
-            <p>Diupdate: {{ $asp->updated_at }}</p>
+            <p class="caption">✍️ Aspirasi : {{ $asp->description }}</p>
+            <p>Uploaded : {{ $asp->created_at }}</p>
+            <p>Updated : {{ $asp->updated_at }}</p>
             <form action="{{ route('aspirasi.destroy', $asp->id) }}" method="POST">
-                <a href="{{ route('aspirasi.show', $asp->id) }}" class="tombol">Detail</a>
-                <a href="{{ route('aspirasi.edit', $asp->id) }}" class="tombol">Edit</a>
+                <a href="{{ route('aspirasi.edit', $asp->id) }}" class="edit">Edit</a>
                 @csrf
                 @method('DELETE')
-                <button type="submit" class="tombol">Hapus</button>
+                <button type="submit" class="delete">Hapus</button>
             </form>
         </div>
     @endforeach
@@ -76,5 +76,6 @@
         });
     </script>
 
+ 
 </body>
 </html>
