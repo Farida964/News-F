@@ -5,26 +5,42 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
      <link rel="stylesheet" href="{{ asset('assets/css/main.css') }}">
      <link rel="stylesheet" href="{{ asset('assets/css/agenda.css') }}">
+     <link rel="stylesheet" href="{{ asset('assets/css/aspirasi.css') }}">
+     <link rel="stylesheet" href="{{ asset('assets/css/navbar.css') }}">
     <title>Edit Aspirasi</title>
 </head>
 <body>
-     <!-- container nav -->
-    <div class="container">
-        <nav class="navbar">
+        <!-- container nav -->
+
+        <nav class="navbar" style="display: flex; justify-content: space-between; align-items: center;">
             <div class="logo">
-                <!-- <img src="" alt=""> -->
                 <h1>News-F</h1>
             </div>
-            
-            <div class="link">
-            <a href="">Profil</a>
-           <a href="{{ route('aspirasi.index') }}">Aspirasi</a>
-           <a href="{{ route('announcement.index') }}">Announcement</a>
-           <a href="{{ route('agenda.index') }}">Agenda</a>
-           <a href="{{ route('competition.index') }}">Competition</a>
-           </div>
+            <div class="link" style="display: flex; align-items: center; gap: 24px;">
+                <a href="{{ url('/home') }}">Home</a>
+                <a href="{{ route('aspirasi.index') }}">Aspirasi</a>
+                <a href="{{ route('announcement.index') }}">Announcement</a>
+                <a href="{{ route('agenda.index') }}">Agenda</a>
+                <a href="{{ route('competition.index') }}">Competition</a>
+                @auth
+                <div class="profile-dropdown">
+                    <img src="{{ asset('assets/img/LOGO (2).png') }}" alt="Profil" class="profile-logo" id="profileLogo">
+                    <div class="dropdown-content" id="profileDropdown">
+                        <a href="{{ route('profile.edit') }}">Edit Profil</a>
+                        <form method="POST" action="{{ route('logout') }}">
+                            @csrf
+                            <button type="submit">Logout</button>
+                        </form>
+                    </div>
+                </div>
+                @endauth
+            </div>
         </nav>
-    </div>
+
+<!-- endNav -->
+<br>
+<div class="card-form">
+<a href="{{ route('aspirasi.index') }}" class="back">Cancel</a>
 <h3>Edit Aspirasi</h3>
 <form action="{{ route('aspirasi.update', $aspirasi->id) }}" method="POST">
     @csrf
@@ -37,8 +53,9 @@
         <textarea name="description" id="" value="{{ $aspirasi->description }}" ></textarea>
 
     </div>
-    <button type="submit" class="tombol">Update</button>
+    <button type="submit" class="add">Update</button>
 </form>
+</div>
 
 </body>
 </html>
