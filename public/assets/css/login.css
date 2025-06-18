@@ -1,0 +1,150 @@
+body {
+    font-family: 'Montserrat', Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    }
+.container {
+
+    display: flex;
+    min-height: 100vh;
+    }
+.left {
+    flex: 1.2;
+    background: url('/assets/img/gedung.webp');
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    background-size: cover;
+    background-position: center;
+    }
+
+.welcome {
+            position: absolute;
+            bottom: 60px;
+            left: 60px;
+            color:rgb(38, 0, 255) ;
+            text-shadow: 0 2px 8px rgba(0,0,0,0.2);
+        }
+        .welcome h2 {
+            margin: 0;
+            font-size: 2rem;
+            font-weight: 700;
+        }
+        .welcome p {
+            margin: 8px 0 0 0;
+            font-size: 1.1rem;
+            font-weight: 400;
+        }
+        .right {
+            flex: 1;
+            background: #5687d1;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .login-box {
+            width: 100%;
+            max-width: 370px;
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+            padding: 32px 28px;
+            text-align: center;
+        }
+        .login-box img {
+            width: 70px;
+            margin-bottom: 18px;
+        }
+        .login-box h3 {
+            font-size: 1.3rem;
+            margin-bottom: 8px;
+            font-weight: 700;
+        }
+        .login-box .desc {
+            font-size: 0.98rem;
+            color: #555;
+            margin-bottom: 18px;
+        }
+        .login-box form {
+            text-align: left;
+        }
+        .login-box label {
+            font-size: 0.97rem;
+            font-weight: 600;
+            margin-bottom: 4px;
+            display: block;
+        }
+        .login-box input[type="text"],
+        .login-box input[type="password"] {
+            width: 100%;
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+            border-radius: 6px;
+            margin-bottom: 12px;
+            font-size: 1rem;
+        }
+        .login-box .forgot {
+            display: block;
+            text-align: right;
+            font-size: 0.95rem;
+            margin-bottom: 14px;
+            color: #007bff;
+            text-decoration: none;
+        }
+        .login-box button[type="submit"] {
+            width: 100%;
+            background: #1976d2;
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            padding: 10px 0;
+            font-size: 1.1rem;
+            font-weight: 700;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        .login-box .powered {
+            margin-top: 18px;
+            font-size: 0.92rem;
+            color: #888;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+        }
+        .login-box .powered img {
+            width: 60px;
+            margin: 0;
+        }
+        @media (max-width: 900px) {
+            .container { flex-direction: column; }
+            .left, .right { flex: unset; width: 100%; }
+            .welcome { position: static; margin: 24px 0 0 0; }
+        }
+
+        /* Tambahkan/modifikasi bagian ini di bawah bagian ".login-box form" */
+.login-box .link-row {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 14px;
+    font-size: 0.95rem;
+}
+
+.login-box .link-row a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.login-box .link-row a:hover {
+    text-decoration: underline;
+}
+
+/* Tambahkan atau update class .error & .message jika ingin tampilan rapi */
+.error, .message {
+    font-size: 0.9rem;
+    color: #d93025;
+    margin-top: 4px;
+    margin-bottom: 8px;
+}

@@ -8,7 +8,7 @@
 
 /* Setiap item card */
 .card-item {
-    background-color: #ffffff;
+    background-color:  #00caca;
     box-shadow: 0 4px 8px rgba(0,0,0,0.1);
     border-radius: 10px;
     overflow: hidden;
@@ -17,6 +17,12 @@
     flex-direction: column;
     align-items: center;
     box-sizing: border-box;
+}
+
+.caption {
+    background-color: #33ffcf88;
+    padding: 8px;
+    border-radius: 5px;
 }
 
 /* Gambar di dalam card */
@@ -42,9 +48,9 @@
 }
 
 /* Tombol-tombol */
-.card-item .tombol {
+.detail {
     display: inline-block;
-    background-color: #007bff;
+    background-color: #33ffcf88;
     color: white;
     padding: 6px 12px;
     margin: 5px 5px 0;
@@ -52,13 +58,30 @@
     border-radius: 5px;
     font-size: 0.9rem;
 }
+.edit {
+    display: inline-block;
+    background-color: #33ffcf88;
+    color: white;
+    padding: 6px 12px;
+    margin: 5px 5px 0;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
 
-/* Tombol form submit (hapus) */
-.card-item form button.tombol {
-    background-color: #dc3545;
-    border: none;
-    cursor: pointer;
 }
+.delete {
+    display: inline-block;
+    background-color: #ff7a7a;
+    color: white;
+    padding: 6px 12px;
+    margin: 5px 5px 0;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 0.9rem;
+
+}
+
+
 
 /* Responsive: 2 kolom pada layar sedang */
 @media (max-width: 900px) {
@@ -102,7 +125,7 @@
 .table .tombol {
     margin-right: 6px;
     padding: 6px 12px;
-    background: #59c72a;
+    background: #c7c72a;
     color: #fff;
     border: none;
     border-radius: 4px;
@@ -110,9 +133,7 @@
     cursor: pointer;
 }
 
-.table .tombol:hover {
-    background: #3e8e1a;
-}
+
 /* responsive */
 @media (max-width: 900px) {
     .card-item {
@@ -174,7 +195,7 @@
 
 .tombol {
     padding: 10px 20px;
-    background: #59c72a;
+    background: #ff7a7a;
     color: #fff;
     border: none;
     border-radius: 6px;
@@ -185,21 +206,7 @@
     margin-top: 8px;
 }
 
-.tombol-float {
-    position: fixed;
-    right: 32px;
-    bottom: 32px;
-    z-index: 1000;
-    background-color: #007bff;
-    color: #fff;
-    padding: 14px 28px;
-    border-radius: 50px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-    font-size: 1.1rem;
-    text-decoration: none;
-    transition: background 0.2s;
-}
 
 .tombol:hover {
-    background: #3e8e1a;
+    background:  #ff1f1f;
 }

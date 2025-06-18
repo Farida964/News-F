@@ -1,0 +1,95 @@
+/* Reset default styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Container background */
+body.container {
+    background: #5687d1;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+
+/* Card form style */
+.card_form {
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 12px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    width: 100%;
+    max-width: 420px;
+}
+
+/* Label wrapper */
+.label {
+    margin-bottom: 1rem;
+}
+
+.label label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #333;
+}
+
+.label input {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.label input:focus {
+    border-color: #4a90e2;
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(74, 144, 226, 0.2);
+}
+
+/* Error message style */
+.text-red-500 {
+    color: #e3342f;
+    font-size: 0.9rem;
+    margin-top: 0.4rem;
+}
+
+/* Bottom buttons */
+.button_card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 1.5rem;
+}
+
+.notif {
+    font-size: 0.9rem;
+    color: #4a90e2;
+    text-decoration: none;
+    transition: color 0.2s;
+}
+
+.notif:hover {
+    color: #2c7ddf;
+    text-decoration: underline;
+}
+
+.button {
+    background-color: #4a90e2;
+    color: white;
+    border: none;
+    padding: 0.6rem 1.2rem;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.button:hover {
+    background-color: #357ab8;
+}

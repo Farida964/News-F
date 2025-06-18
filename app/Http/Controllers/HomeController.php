@@ -8,7 +8,7 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $agendas = Agenda::latest()->take(3)->get(); // Ambil 3 agenda terbaru
-        return view('home', compact('agendas'));
+        $allAgenda = Agenda::latest()->take(3)->get(); 
+        return view('home', compact('allAgenda'));
     }
 }
