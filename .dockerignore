@@ -1,0 +1,16 @@
+node_modules
+vendor
+.env
+.env.local
+storage/*.key
+tests/
+*.log
+*.sqlite
+npm-debug.log
+docker-compose.yml
+.idea/
+.vscode/
+*.md
+*.bak
+.DS_Store
+Thumbs.db
