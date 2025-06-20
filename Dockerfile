@@ -5,6 +5,9 @@ RUN apt-get update && apt-get install -y \
     && docker-php-ext-install pdo pdo_mysql zip
 
 RUN a2enmod rewrite
+RUN php artisan config:clear && \
+    php artisan config:cache && \
+    php artisan migrate --force
 
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
