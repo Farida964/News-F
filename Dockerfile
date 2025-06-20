@@ -1,26 +1,34 @@
 FROM php:8.2-apache
 
+# Install dependencies
 RUN apt-get update && apt-get install -y \
     zip unzip git curl libzip-dev libpng-dev libonig-dev libxml2-dev \
-    && docker-php-ext-install pdo pdo_mysql zip
+    && docker-php-ext-install pdo pdo_mysql zip \
+    && a2enmod rewrite
 
-RUN a2enmod rewrite
-RUN php artisan config:clear && \
-    php artisan config:cache && \
-    php artisan migrate --force
-
+# Install Composer
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
-COPY . /var/www/html
-
-COPY ./docker/apache.conf /etc/apache2/sites-available/000-default.conf
-
+# Set working directory
 WORKDIR /var/www/html
 
+# Copy project files
+COPY . .
+
+# Set permission for Laravel
+RUN chown -R www-data:www-data storage bootstrap/cache
+
+# Install Laravel dependencies
 RUN composer install --no-dev --optimize-autoloader
 
-RUN chown -R www-data:www-data storage bootstrap/cache
+# Copy Apache config
+COPY ./docker/apache.conf /etc/apache2/sites-available/000-default.conf
+
+# Copy custom start script
+COPY docker/start.sh /start.sh
+RUN chmod +x /start.sh
 
 EXPOSE 80
 
-CMD ["apache2-foreground"]
+# Start via custom script (with migrate + serve)
+CMD ["/start.sh"]
